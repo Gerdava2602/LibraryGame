@@ -6,6 +6,7 @@
 package States;
 
 import Graficos.Assets;
+import beginner.Game;
 import java.awt.Graphics;
 
 /**
@@ -13,6 +14,10 @@ import java.awt.Graphics;
  * @author German David
  */
 public class MenuState extends State{
+
+    public MenuState(Game game) {
+        super(game);
+    }
 
     @Override
     public void update() {
@@ -24,9 +29,5 @@ public class MenuState extends State{
        g.drawImage(Assets.background, 0, 0, null);
     }
 
-    @Override
-    public void init() {
-        
-    }
     
 }

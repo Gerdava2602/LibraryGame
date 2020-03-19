@@ -10,7 +10,9 @@ import Display.Display;
 import Graficos.Assets;
 import Graficos.SpriteSheet;
 import States.GameState;
+import States.MenuState;
 import States.State;
+import beginner.Input.KeyManager;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -49,21 +51,30 @@ public class Game implements Runnable {
 
 //States
     private State gameState;
+    private State menuState;
+    private State SettingState;
+    
+    //Input
+    private KeyManager KeyManager;
     //Constructor
     public Game(String titulo, int width, int height) {
         this.height = height;
         this.width = width;
         this.titulo = titulo;
+        KeyManager= new KeyManager();
     }
 
     //Inicio
     private void init() {
 
         display = new Display(titulo, width, height);
+        display.getFrame().addKeyListener(KeyManager);
+        
         //Create all the images from the begin
         Assets.init();
 
-        gameState= new GameState();
+        gameState= new GameState(this);
+        menuState= new MenuState(this);
         State.setState(gameState);
     }
 
@@ -71,6 +82,7 @@ public class Game implements Runnable {
 
     //actualiza las variables
     private void update() {
+        KeyManager.update();
        if(State.getState() != null){
          
            State.getState().update();
@@ -82,7 +94,7 @@ public class Game implements Runnable {
     private void render() {
         bs = display.getCanvas().getBufferStrategy();
         if (bs == null) {
-            //numero de buffers, si ya no hy
+            //numero de buffers, si ya no hay
             display.getCanvas().createBufferStrategy(3);
             return;
         }
@@ -90,9 +102,12 @@ public class Game implements Runnable {
         //limpia la pantalla
         g.clearRect(0, 0, width, height);
         //Dibuja desde aqui
-
+    
+        if(State.getState()!=null){
+            State.getState().render(g);
+        }
         
-
+        
         //Donde termina de pintar
         bs.show();
         //Hace que se cierre nuestro graphic object
@@ -142,6 +157,10 @@ public class Game implements Runnable {
         }
 
         stop();
+    }
+    
+    public KeyManager getKeyManager(){
+        return KeyManager;
     }
 
     //synchronized se usa cuando se usa hilos y quieres que todo vaya en orden

@@ -5,31 +5,28 @@
  */
 package States;
 
-import Entities.Creatures.Player;
-import Graficos.Assets;
 import beginner.Game;
 import java.awt.Graphics;
 
+/**
+ *
+ * @author German David
+ */
+public class SettingState extends State{
 
-public class GameState extends State{
-
-    private Player player;
-    public GameState(Game game) {
+    public SettingState(Game game) {
         super(game);
-        player= new Player( this.game,100,100);
     }
 
-    
     @Override
     public void update() {
-        player.update();
+        
     }
+
 
     @Override
     public void render(Graphics g) {
-        player.render(g);
+        
     }
-
-    
     
 }

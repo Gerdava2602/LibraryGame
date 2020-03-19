@@ -5,6 +5,7 @@
  */
 package States;
 
+import beginner.Game;
 import java.awt.Graphics;
 
 /**
@@ -27,7 +28,13 @@ public abstract class State {
 //Class
     public abstract void update();
     
-    public abstract void init();
+   protected Game game;
+
+    public State(Game game) {
+        this.game = game;
+    }
+   
+   
     
     public abstract void render(Graphics g);
     

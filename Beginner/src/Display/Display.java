@@ -46,6 +46,8 @@ public class Display {
         canvas.setPreferredSize(new Dimension(width,height));
         canvas.setMaximumSize(new Dimension(width,height));
         canvas.setMinimumSize(new Dimension(width,height));
+        //The only thing that can be focused is the frame
+        canvas.setFocusable(false);
         
         frame.add(canvas);
         //ajusta la ventana para que se vea todo el canva
@@ -53,5 +55,9 @@ public class Display {
     }
     public Canvas getCanvas(){
         return canvas;
+    }
+    
+    public JFrame getFrame(){
+        return frame;
     }
 }
