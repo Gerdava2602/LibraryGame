@@ -18,7 +18,7 @@ public class Player extends Creature{
     private Game game;
     
     public Player(Game game,float x, float y) {
-        super(x, y);
+        super(x, y,Creature.DEFAULT_CREATURE_WIDTH,Creature.DEFAULT_CREATUR_HEIGHT);
         this.game=game;
     }
 
@@ -26,25 +26,31 @@ public class Player extends Creature{
 
     @Override
     public void update() {
-        if(game.getKeyManager().up){
-            y-=3;
-        }
-        if(game.getKeyManager().down){
-            y+=3;
-        }
-        if(game.getKeyManager().right){
-            x+=3;
-        }
-        if(game.getKeyManager().left){
-            x-=3;
-        }
-        
+        getInput();
+        move();
     }
 
+    private void getInput(){
+        Xmove=0;
+        Ymove=0;
+        
+        if(game.getKeyManager().up){
+            Ymove =-speed;
+        }
+        if(game.getKeyManager().down){
+            Ymove =speed;
+        }
+        if(game.getKeyManager().right){
+            Xmove =speed;
+        }
+        if(game.getKeyManager().left){
+            Xmove =-speed;
+        }
+    }
     @Override
     public void render(Graphics g) {
-       
-        g.drawImage(Assets.playerStand,(int) x, (int) y, null);
+        
+        g.drawImage(Assets.playerStand[1],(int) x, (int) y, width, height, null);
         
     }
     

@@ -14,11 +14,57 @@ import java.awt.Graphics;
  */
 public abstract class Creature extends Entity{
     
+    protected float Xmove=0,Ymove=0;
     protected int health;
+    protected float speed;
     
-    public Creature(float x, float y) {
-        super(x, y);
-        health=10;
+    public static final int DEFAULT_HEALTH=10;
+    public static final float DEFAULT_SPEED=3.0f;
+    public static final int DEFAULT_CREATURE_WIDTH=131;
+    public static final int DEFAULT_CREATUR_HEIGHT=110;
+    
+    
+    public Creature(float x, float y,int width, int height) {
+        super(x,y,width,height);
+        health=DEFAULT_HEALTH;
+        speed=DEFAULT_SPEED;
+    }
+
+    public void move(){
+        x +=Xmove;
+        y+=Ymove;
+    }
+//Getters and setters
+    public float getXmove() {
+        return Xmove;
+    }
+
+    public void setXmove(float Xmove) {
+        this.Xmove = Xmove;
+    }
+
+    public float getYmove() {
+        return Ymove;
+    }
+
+    public void setYmove(float Ymove) {
+        this.Ymove = Ymove;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
     }
 
     

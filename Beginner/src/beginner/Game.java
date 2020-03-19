@@ -48,7 +48,7 @@ public class Game implements Runnable {
     private BufferStrategy bs;
 //
     private Graphics g;
-
+    public int ticks;
 //States
     private State gameState;
     private State menuState;
@@ -119,7 +119,7 @@ public class Game implements Runnable {
         init();
 
         //frames per second
-        int fps = 100;
+        int fps = 50;
         //there are 1 million nanoseconds on a second
         double timePerUpd = 1000000000 / fps;
 
@@ -130,7 +130,7 @@ public class Game implements Runnable {
         long lastTime = System.nanoTime();
         // se utilizan para medir los fps
         long timer=0;
-        int ticks=0;
+         int ticks=0;
     
         while (running) {
             now = System.nanoTime();
