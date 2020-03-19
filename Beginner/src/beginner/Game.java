@@ -12,6 +12,7 @@ import Graficos.SpriteSheet;
 import States.GameState;
 import States.MenuState;
 import States.State;
+import Worlds.World;
 import beginner.Input.KeyManager;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -26,8 +27,7 @@ import java.util.logging.Logger;
  */
 //va a ser la que haga todo lo de juego
 public class Game implements Runnable {
-//la pantala
-
+//la pantalla
     private Display display;
 
 //size
@@ -119,7 +119,7 @@ public class Game implements Runnable {
         init();
 
         //frames per second
-        int fps = 50;
+        int fps = 100;
         //there are 1 million nanoseconds on a second
         double timePerUpd = 1000000000 / fps;
 

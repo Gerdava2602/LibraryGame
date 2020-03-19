@@ -22,7 +22,7 @@ public class Tile {
     public static Tile floor = new FloorTile(1);
 
     //Class
-    public static final int TILEWIDTH = 32, TILEHEIGHT = 32;
+    public static final int TILEWIDTH = 128, TILEHEIGHT = 128;
     protected BufferedImage texture;
     protected final int id;
 
