@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 //every image, music or resource
 public class Assets {
 
-    public static BufferedImage playerStand[]= new BufferedImage[9], library, background, playerJump, playerWalk, floor;
+    public static BufferedImage playerStand[]= new BufferedImage[9],empty, library, background, playerJump, playerWalk, floor;
 
     private static final int width = 131, height = 110;
 
@@ -31,7 +31,8 @@ public class Assets {
             
         }
         
-        background = Imageloader.loadImage("/textures/download.png");
+        background = Imageloader.loadImage("/textures/espacio.png");
+        empty=Imageloader.loadImage("/textures/empty.png");
 
     }
 }

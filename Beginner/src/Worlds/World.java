@@ -5,9 +5,11 @@
  */
 package Worlds;
 
+import Graficos.Assets;
 import Tiles.Tile;
 import static Tiles.Tile.TILEHEIGHT;
 import static Tiles.Tile.TILEWIDTH;
+import Utils.Util;
 import java.awt.Graphics;
 
 /**
@@ -17,6 +19,7 @@ import java.awt.Graphics;
 public class World {
     
     private int width,height;
+    private int spawnX,spawnY;
     private int[][] tiles= new int [100][100];
     
     public World(String path){
@@ -28,6 +31,7 @@ public class World {
     }
     
     public void render(Graphics g){
+        g.drawImage(Assets.background, 0, 0,800,600 ,null);
         for(int y=0;y<height;y++){
             for(int x=0;x<width;x++){
                 getTile(x,y).render(g, x*TILEWIDTH, y*TILEHEIGHT);
@@ -43,13 +47,19 @@ public class World {
     }
     
     private void loadWorld(String path){
-        width=5;
-        height=5;
-        tiles= new int[width][height];
+        String file= Util.loadFileAsString(path);
+        //\\s+ es cada espacio en blanco
+        String[] tokens= file.split("\\s+");
+        width= Util.parseInt(tokens[0]);
+        height= Util.parseInt(tokens[1]);
+        spawnX= Util.parseInt(tokens[2]);
+        spawnY= Util.parseInt(tokens[3]);
         
-        for(int x=0; x<width;x++){
-            for(int y=0;y<height;y++){
-                tiles[x][y]=1;
+        tiles= new int[width][height];
+        for(int y=0;y<height;y++){
+            for(int x=0;x<width;x++){
+                
+                tiles[x][y]=Util.parseInt(tokens[(x+y*width)+4]);
             }
         }
     }

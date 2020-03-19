@@ -20,9 +20,9 @@ public class Tile {
     public static Tile[] tiles = new Tile[256];
     public static Tile library = new LibraryTile(0);
     public static Tile floor = new FloorTile(1);
-
+    public static Tile empty= new Empty(2);
     //Class
-    public static final int TILEWIDTH = 128, TILEHEIGHT = 128;
+    public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
     protected BufferedImage texture;
     protected final int id;
 

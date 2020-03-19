@@ -101,6 +101,7 @@ public class Game implements Runnable {
         g = bs.getDrawGraphics();
         //limpia la pantalla
         g.clearRect(0, 0, width, height);
+        
         //Dibuja desde aqui
     
         if(State.getState()!=null){
