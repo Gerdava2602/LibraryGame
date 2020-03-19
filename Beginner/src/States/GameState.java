@@ -7,6 +7,7 @@ package States;
 
 import Entities.Creatures.Player;
 import Graficos.Assets;
+import Tiles.Tile;
 import beginner.Game;
 import java.awt.Graphics;
 
@@ -28,6 +29,7 @@ public class GameState extends State{
     @Override
     public void render(Graphics g) {
         player.render(g);
+        Tile.tiles[1].render(g, 0, 0);
     }
 
     
