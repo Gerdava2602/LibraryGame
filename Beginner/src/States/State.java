@@ -27,6 +27,8 @@ public abstract class State {
 //Class
     public abstract void update();
     
+    public abstract void init();
+    
     public abstract void render(Graphics g);
     
     

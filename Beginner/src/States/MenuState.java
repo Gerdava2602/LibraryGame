@@ -8,14 +8,12 @@ package States;
 import Graficos.Assets;
 import java.awt.Graphics;
 
+/**
+ *
+ * @author German David
+ */
+public class MenuState extends State{
 
-public class GameState extends State{
-
-    public GameState() {
-    
-    }
-
-    
     @Override
     public void update() {
         
@@ -23,7 +21,7 @@ public class GameState extends State{
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(Assets.playerStand, 0, 0, null);
+       g.drawImage(Assets.background, 0, 0, null);
     }
 
     @Override
