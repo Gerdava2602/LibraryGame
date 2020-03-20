@@ -10,6 +10,7 @@ import Tiles.Tile;
 import static Tiles.Tile.TILEHEIGHT;
 import static Tiles.Tile.TILEWIDTH;
 import Utils.Util;
+import beginner.Game;
 import java.awt.Graphics;
 
 /**
@@ -17,13 +18,15 @@ import java.awt.Graphics;
  * @author German David
  */
 public class World {
-    
+    private Game game;
     private int width,height;
     private int spawnX,spawnY;
     private int[][] tiles= new int [100][100];
     
-    public World(String path){
+    public World(Game game,String path){
+        this.game= game;
         loadWorld(path);
+        
     }
     
     public void update(){
@@ -34,7 +37,8 @@ public class World {
         g.drawImage(Assets.background, 0, 0,800,600 ,null);
         for(int y=0;y<height;y++){
             for(int x=0;x<width;x++){
-                getTile(x,y).render(g, x*TILEWIDTH, y*TILEHEIGHT);
+                getTile(x,y).render(g, (int)(x*Tile.TILEWIDTH-game.getGameCamara().getxOffset()),
+                        (int)(y*Tile.TILEHEIGHT-game.getGameCamara().getyOffset()));
             }
         }
     }

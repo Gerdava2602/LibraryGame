@@ -8,6 +8,7 @@ package beginner;
 import Graficos.Imageloader;
 import Display.Display;
 import Graficos.Assets;
+import Graficos.GameCamara;
 import Graficos.SpriteSheet;
 import States.GameState;
 import States.MenuState;
@@ -31,7 +32,7 @@ public class Game implements Runnable {
     private Display display;
 
 //size
-    public int width, height;
+    private int width, height;
 
 // Hilo en el que se desarrolla;
     private Thread thread;
@@ -56,6 +57,8 @@ public class Game implements Runnable {
     
     //Input
     private KeyManager KeyManager;
+    //Camara
+    private GameCamara gameCamara;
     //Constructor
     public Game(String titulo, int width, int height) {
         this.height = height;
@@ -72,7 +75,9 @@ public class Game implements Runnable {
         
         //Create all the images from the begin
         Assets.init();
+        
 
+        gameCamara= new GameCamara(this,0,0);
         gameState= new GameState(this);
         menuState= new MenuState(this);
         State.setState(gameState);
@@ -164,6 +169,19 @@ public class Game implements Runnable {
         return KeyManager;
     }
 
+    public GameCamara getGameCamara(){
+        return gameCamara;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+    
+    
     //synchronized se usa cuando se usa hilos y quieres que todo vaya en orden
     public synchronized void start() {
         //por si el juego ya inició

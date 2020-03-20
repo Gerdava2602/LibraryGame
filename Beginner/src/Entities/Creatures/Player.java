@@ -15,19 +15,18 @@ import java.awt.Graphics;
  */
 public class Player extends Creature{
 
-    private Game game;
     
     public Player(Game game,float x, float y) {
-        super(x, y,Creature.DEFAULT_CREATURE_WIDTH,Creature.DEFAULT_CREATUR_HEIGHT);
-        this.game=game;
+        super(game,x, y,Creature.DEFAULT_CREATURE_WIDTH,Creature.DEFAULT_CREATUR_HEIGHT);
     }
 
-    
+     
 
     @Override
     public void update() {
         getInput();
         move();
+        game.getGameCamara().centerOnEntity(this);
     }
 
     private void getInput(){
@@ -37,9 +36,11 @@ public class Player extends Creature{
         if(game.getKeyManager().up){
             Ymove =-speed;
         }
+        
         if(game.getKeyManager().down){
             Ymove =speed;
         }
+        
         if(game.getKeyManager().right){
             Xmove =speed;
         }
@@ -50,8 +51,10 @@ public class Player extends Creature{
     @Override
     public void render(Graphics g) {
         
-        g.drawImage(Assets.playerStand[1],(int) x, (int) y, width, height, null);
+        g.drawImage(Assets.playerStand[1],(int) (x-game.getGameCamara().getxOffset()), (int) (y-game.getGameCamara().getyOffset()), width, height, null);
         
     }
+    
+    
     
 }

@@ -21,7 +21,9 @@ public class GameState extends State{
     public GameState(Game game) {
         super(game);
         player= new Player( this.game,100,100);
-        world= new World("res/worlds/world1.txt");
+        world= new World(game,"res/worlds/world1.txt");
+        
+       
     }
 
     
@@ -29,6 +31,7 @@ public class GameState extends State{
     public void update() {
         world.update();
         player.update();
+        
     }
 
     @Override
