@@ -59,6 +59,7 @@ public class Game implements Runnable {
     private KeyManager KeyManager;
     //Camara
     private GameCamara gameCamara;
+    
     //Constructor
     public Game(String titulo, int width, int height) {
         this.height = height;

@@ -6,6 +6,8 @@
 package States;
 
 import Entities.Creatures.Player;
+import Entities.Items.Bullet;
+
 import Graficos.Assets;
 import Tiles.Tile;
 import Worlds.World;
@@ -17,13 +19,12 @@ public class GameState extends State{
 
     private Player player;
     private World world;
+    private Bullet[] bulls;
     
     public GameState(Game game) {
         super(game);
         player= new Player( this.game,100,100);
         world= new World(game,"res/worlds/world1.txt");
-        
-       
     }
 
     
@@ -31,7 +32,6 @@ public class GameState extends State{
     public void update() {
         world.update();
         player.update();
-        
     }
 
     @Override
