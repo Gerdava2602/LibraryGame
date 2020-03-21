@@ -80,11 +80,10 @@ public class Game implements Runnable {
         //Create all the images from the begin
         Assets.init();
         
-
-        gameCamara= new GameCamara(this,0,0);
         handler= new Handler(this);
-        gameState= new GameState(this.handler);
-        menuState= new MenuState(this.handler);
+        gameCamara= new GameCamara(handler,0,0);
+        gameState= new GameState(handler);
+        menuState= new MenuState(handler);
         State.setState(gameState);
     }
 
