@@ -6,6 +6,7 @@
 package Entities.Creatures;
 
 import Entities.Items.Bullet;
+import Graficos.Animation;
 import Graficos.Assets;
 
 import beginner.Game;
@@ -13,6 +14,7 @@ import beginner.Handler;
 import java.awt.Color;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -23,19 +25,35 @@ public class Player extends Creature {
     public Bullet[] bullets= new Bullet[100];
     public static int bullcount = 0;
     private long clock;
-    
+    //Animations
+    private Animation animDown,animUp,animR,animL;
     
     public Player(Handler handler, float x, float y) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATUR_HEIGHT);
-        
+        /* Bounds para la chica
         bounds.x=40;
         bounds.y=35;
         bounds.width=35;
         bounds.height=60;
+        */
+        bounds.x=40;
+        bounds.y=65;
+        bounds.width=52;
+        bounds.height=40;
+        
+        //Animations
+        animDown= new Animation(100,Assets.playerDown);
+        animUp= new Animation(100,Assets.playerUp);
+        animR= new Animation(100,Assets.playerRight);
+        animL= new Animation(100,Assets.playerLeft);
     }
 
     @Override
     public void update() {
+        animDown.update();
+        animUp.update();
+        animR.update();
+        animL.update();
         getInput();
         move();
         for (int i = 0; i <100; i++) {
@@ -79,7 +97,7 @@ public class Player extends Creature {
     @Override
     public void render(Graphics g) {
 
-        g.drawImage(Assets.playerStand[1], (int) (x - handler.getGameCamara().getxOffset()), (int) (y - handler.getGameCamara().getyOffset()), width, height, null);
+        g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamara().getxOffset()), (int) (y - handler.getGameCamara().getyOffset()), width, height, null);
         /*
         g.setColor(Color.yellow);
         g.fillRect((int) (x + bounds.x - handler.getGameCamara().getxOffset()), 
@@ -91,5 +109,21 @@ public class Player extends Creature {
            }
         }
         
+    }
+    
+    
+    //Conseguir la animación en cada movimiento
+    private BufferedImage getCurrentAnimationFrame(){
+        if(Xmove<0){
+            return animL.getCurrentFrame();
+        }else if (Xmove>0){
+            return animR.getCurrentFrame();
+        }else if(Ymove<0){
+            return animUp.getCurrentFrame();
+        }else if (Ymove>0){
+            return animDown.getCurrentFrame();
+        }else{
+            return Assets.playerDown[0];
+        }
     }
 }
