@@ -6,6 +6,7 @@
 package States;
 
 import beginner.Game;
+import beginner.Handler;
 import java.awt.Graphics;
 
 /**
@@ -14,8 +15,8 @@ import java.awt.Graphics;
  */
 public class SettingState extends State{
 
-    public SettingState(Game game) {
-        super(game);
+    public SettingState(Handler handler) {
+        super(handler);
     }
 
     @Override

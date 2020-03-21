@@ -12,6 +12,7 @@ import Graficos.Assets;
 import Tiles.Tile;
 import Worlds.World;
 import beginner.Game;
+import beginner.Handler;
 import java.awt.Graphics;
 
 
@@ -21,10 +22,12 @@ public class GameState extends State{
     private World world;
     private Bullet[] bulls;
     
-    public GameState(Game game) {
-        super(game);
-        player= new Player( this.game,100,100);
-        world= new World(game,"res/worlds/world1.txt");
+    public GameState(Handler handler) {
+        super(handler);
+        world= new World(handler,"res/worlds/world1.txt");
+        handler.setWorld(world);
+        player= new Player( this.handler,100,100);
+        
     }
 
     

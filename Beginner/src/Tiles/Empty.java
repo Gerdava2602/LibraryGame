@@ -18,8 +18,5 @@ public class Empty extends Tile{
         super(Assets.empty, id);
     }
     
-    @Override
-    public boolean isSolid(){
-        return true;
-    }
+    
 }

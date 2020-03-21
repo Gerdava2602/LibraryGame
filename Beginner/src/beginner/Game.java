@@ -60,6 +60,9 @@ public class Game implements Runnable {
     //Camara
     private GameCamara gameCamara;
     
+    //Handler
+    private Handler handler;
+    
     //Constructor
     public Game(String titulo, int width, int height) {
         this.height = height;
@@ -79,8 +82,9 @@ public class Game implements Runnable {
         
 
         gameCamara= new GameCamara(this,0,0);
-        gameState= new GameState(this);
-        menuState= new MenuState(this);
+        handler= new Handler(this);
+        gameState= new GameState(this.handler);
+        menuState= new MenuState(this.handler);
         State.setState(gameState);
     }
 

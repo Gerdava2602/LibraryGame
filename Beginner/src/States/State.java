@@ -6,6 +6,7 @@
 package States;
 
 import beginner.Game;
+import beginner.Handler;
 import java.awt.Graphics;
 
 /**
@@ -28,10 +29,10 @@ public abstract class State {
 //Class
     public abstract void update();
     
-   protected Game game;
+   protected Handler handler;
 
-    public State(Game game) {
-        this.game = game;
+    public State(Handler handler) {
+        this.handler = handler;
     }
    
    

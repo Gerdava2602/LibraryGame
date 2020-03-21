@@ -3,28 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Graficos/SpriteSheet.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/MenuState.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Utils/Util.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Game.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/res/Worlds/World1.txt</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Input/KeyManager.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Graficos/GameCamara.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Graficos/Imageloader.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Entity.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/SettingState.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Display/Display.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Creatures/Player.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Tiles/Tile.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/GameState.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Tiles/FloorTile.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/State.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Tiles/Empty.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Graficos/Assets.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/MenuState.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Game.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Entity.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Creatures/Creature.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Launcher.java</file>
-            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Tiles/LibraryTile.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Handler.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/SettingState.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Creatures/Player.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Worlds/World.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Items/Bullet.java</file>
         </group>
     </open-files>
 </project-private>

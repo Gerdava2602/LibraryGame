@@ -11,6 +11,7 @@ import static Tiles.Tile.TILEHEIGHT;
 import static Tiles.Tile.TILEWIDTH;
 import Utils.Util;
 import beginner.Game;
+import beginner.Handler;
 import java.awt.Graphics;
 
 /**
@@ -19,13 +20,14 @@ import java.awt.Graphics;
  */
 public class World {
 
-    private Game game;
+    private Handler handler;
     private int width, height;
     private int spawnX, spawnY;
     private int[][] tiles = new int[100][100];
+    
 
-    public World(Game game, String path) {
-        this.game = game;
+    public World(Handler handler, String path) {
+        this.handler =handler;
         loadWorld(path);
 
     }
@@ -36,20 +38,22 @@ public class World {
 
     public void render(Graphics g) {
         //Varibales para crear las tiles visibles
-        int Xstart=(int)Math.max(0, game.getGameCamara().getxOffset()/Tile.TILEWIDTH);
-        int Xend=(int)Math.min(width, (game.getGameCamara().getxOffset()+game.getWidth())/Tile.TILEWIDTH+1);
-        int Ystart=(int)Math.max(0, game.getGameCamara().getyOffset()/Tile.TILEHEIGHT);;
-        int Yend=(int)Math.min(height, (game.getGameCamara().getyOffset()+game.getHeight())/Tile.TILEHEIGHT+1);;
+        int Xstart=(int)Math.max(0, handler.getGameCamara().getxOffset()/Tile.TILEWIDTH);
+        int Xend=(int)Math.min(width, (handler.getGameCamara().getxOffset()+handler.getWidth())/Tile.TILEWIDTH+1);
+        int Ystart=(int)Math.max(0, handler.getGameCamara().getyOffset()/Tile.TILEHEIGHT);;
+        int Yend=(int)Math.min(height, (handler.getGameCamara().getyOffset()+handler.getHeight())/Tile.TILEHEIGHT+1);;
         g.drawImage(Assets.background, 0, 0, 800, 600, null);
         for (int y = Ystart; y < Yend; y++) {
             for (int x = Xstart; x < Xend; x++) {
-                getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - game.getGameCamara().getxOffset()),
-                        (int) (y * Tile.TILEHEIGHT - game.getGameCamara().getyOffset()));
+                getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamara().getxOffset()),
+                        (int) (y * Tile.TILEHEIGHT - handler.getGameCamara().getyOffset()));
             }
         }
     }
 
     public Tile getTile(int x, int y) {
+        if(x<0 || y<0 || x>=width || y>=height)
+            return Tile.empty;
         Tile t = Tile.tiles[tiles[x][y]];
         if (t == null) {
             return Tile.floor;

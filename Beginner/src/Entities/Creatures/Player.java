@@ -7,9 +7,11 @@ package Entities.Creatures;
 
 import Entities.Items.Bullet;
 import Graficos.Assets;
-import Worlds.World;
+
 import beginner.Game;
+import beginner.Handler;
 import java.awt.Color;
+
 import java.awt.Graphics;
 
 /**
@@ -23,9 +25,13 @@ public class Player extends Creature {
     private long clock;
     
     
-    public Player(Game game, float x, float y) {
-        super(game, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATUR_HEIGHT);
+    public Player(Handler handler, float x, float y) {
+        super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATUR_HEIGHT);
         
+        bounds.x=40;
+        bounds.y=35;
+        bounds.width=35;
+        bounds.height=60;
     }
 
     @Override
@@ -38,29 +44,29 @@ public class Player extends Creature {
             bullets[i].update();
             }
         }
-        game.getGameCamara().centerOnEntity(this);
+        handler.getGameCamara().centerOnEntity(this);
     }
 
     private void getInput() {
         Xmove = 0;
         Ymove = 0;
 
-        if (game.getKeyManager().up) {
+        if (handler.getKeyManager().up) {
             Ymove = -speed;
         }
 
-        if (game.getKeyManager().down) {
+        if (handler.getKeyManager().down) {
             Ymove = speed;
         }
 
-        if (game.getKeyManager().right) {
+        if (handler.getKeyManager().right) {
             Xmove = speed;
         }
-        if (game.getKeyManager().left) {
+        if (handler.getKeyManager().left) {
             Xmove = -speed;
         }
-        if (game.getKeyManager().space) {
-            bullets[bullcount] = new Bullet(this.game, x, y, Player.DEFAULT_CREATURE_WIDTH, Player.DEFAULT_CREATUR_HEIGHT);
+        if (handler.getKeyManager().space) {
+            bullets[bullcount] = new Bullet(this.handler, x, y, Player.DEFAULT_CREATURE_WIDTH, Player.DEFAULT_CREATUR_HEIGHT);
             bullcount++;
             if(bullcount==100){
                 bullcount=0;
@@ -73,8 +79,12 @@ public class Player extends Creature {
     @Override
     public void render(Graphics g) {
 
-        g.drawImage(Assets.playerStand[1], (int) (x - game.getGameCamara().getxOffset()), (int) (y - game.getGameCamara().getyOffset()), width, height, null);
-        
+        g.drawImage(Assets.playerStand[1], (int) (x - handler.getGameCamara().getxOffset()), (int) (y - handler.getGameCamara().getyOffset()), width, height, null);
+        /*
+        g.setColor(Color.yellow);
+        g.fillRect((int) (x + bounds.x - handler.getGameCamara().getxOffset()), 
+                (int) (y+bounds.y-handler.getGameCamara().getyOffset()), bounds.width,bounds.height);
+        */
         for (int i = 0; i < 100; i++) {
            if(bullets[i]!= null){ 
             bullets[i].render(g);

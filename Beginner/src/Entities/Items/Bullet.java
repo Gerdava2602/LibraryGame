@@ -12,6 +12,7 @@ import States.GameState;
 import Tiles.Tile;
 import Worlds.World;
 import beginner.Game;
+import beginner.Handler;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -24,10 +25,10 @@ public class Bullet extends Entity {
     private int X;
     private int Y;
     
-    public Bullet(Game game, float x, float y, int width, int height) {
-        super(game, x, y, width, height);
-        X=(int) (x+Player.DEFAULT_CREATURE_WIDTH/2 - game.getGameCamara().getxOffset());
-        Y=(int) ( Player.DEFAULT_CREATUR_HEIGHT/2 + y -game.getGameCamara().getyOffset());
+    public Bullet(Handler handler, float x, float y, int width, int height) {
+        super(handler, x, y, width, height);
+        X=(int) (x+Player.DEFAULT_CREATURE_WIDTH/2 - handler.getGameCamara().getxOffset());
+        Y=(int) ( Player.DEFAULT_CREATUR_HEIGHT/2 + y -handler.getGameCamara().getyOffset());
     }
     
     
@@ -42,7 +43,7 @@ public class Bullet extends Entity {
 
     @Override
     public void render(Graphics g) {
-        if(X <= game.getWidth()*Tile.TILEWIDTH){
+        if(X <= handler.getWidth()*Tile.TILEWIDTH){
          g.setColor(Color.yellow);
          g.fillOval( X,  Y, 10, 10);
         }
@@ -51,7 +52,7 @@ public class Bullet extends Entity {
     
     
     public boolean isShoot(){
-        if(x>=game.getWidth()){
+        if(x>=handler.getWidth()){
             return false;
         }else{
             return true;
