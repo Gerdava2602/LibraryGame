@@ -5,7 +5,9 @@
  */
 package States;
 
-import beginner.Game;
+import Graficos.Assets;
+import UI.UIImageButton;
+import UI.UIManager;
 import beginner.Handler;
 import java.awt.Graphics;
 
@@ -14,9 +16,16 @@ import java.awt.Graphics;
  * @author German David
  */
 public class SettingState extends State{
-
+    
+    private UIManager uimanager;
+    
+    
     public SettingState(Handler handler) {
         super(handler);
+        uimanager= new UIManager (handler);
+        handler.getMouseManager().setUIManager(uimanager);
+        
+       // uimanager.addUIObject(new UIImageButton ());
     }
 
     @Override
@@ -27,6 +36,8 @@ public class SettingState extends State{
 
     @Override
     public void render(Graphics g) {
+        
+        g.drawImage(Assets.settings, 0, 0, null);
         
     }
     

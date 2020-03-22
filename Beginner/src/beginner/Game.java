@@ -55,7 +55,8 @@ public class Game implements Runnable {
     public State gameState;
     public State menuState;
     public State SettingState;
-    
+    //frames per second
+    private int fps = 60;
     //Input
     private KeyManager KeyManager;
     private MouseManager MouseManager;
@@ -135,8 +136,7 @@ public class Game implements Runnable {
     public void run() {
         init();
 
-        //frames per second
-        int fps = 100;
+        
         //there are 1 million nanoseconds on a second
         double timePerUpd = 1000000000 / fps;
 
@@ -194,6 +194,14 @@ public class Game implements Runnable {
 
     public int getHeight() {
         return height;
+    }
+
+    public int getFps() {
+        return fps;
+    }
+
+    public void setFps(int fps) {
+        this.fps = fps;
     }
     
     

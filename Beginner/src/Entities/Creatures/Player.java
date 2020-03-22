@@ -41,7 +41,7 @@ public class Player extends Creature {
         bounds.width=52;
         bounds.height=40;
         
-        //Animations
+        //Animations           Speed en millis()
         animDown= new Animation(100,Assets.playerDown);
         animUp= new Animation(100,Assets.playerUp);
         animR= new Animation(100,Assets.playerRight);

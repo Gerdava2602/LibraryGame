@@ -58,5 +58,11 @@ public class Handler {
         this.world = world;
     }
     
+    public int getFps(int Fps){
+        return game.getFps();
+    }
     
+    public void setFps(int fps){
+        game.setFps(fps);
+    }
 }
