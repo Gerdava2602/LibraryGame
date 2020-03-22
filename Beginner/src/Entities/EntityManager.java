@@ -9,6 +9,7 @@ import Entities.Creatures.Player;
 import beginner.Handler;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  *
@@ -19,6 +20,16 @@ public class EntityManager {
     private Handler handler;
     private Player player;
     private ArrayList <Entity> entities;
+    //Comparador
+    private Comparator<Entity> rendersorter= new Comparator<Entity>(){
+        
+        public int compare(Entity a, Entity b) {
+            if(a.getY()+a.getHeight()<b.getY()+b.getHeight())
+                return-1;
+            return 1;
+        }
+        
+    };
 
     public EntityManager(Handler handler, Player player) {
         this.handler = handler;
@@ -33,7 +44,8 @@ public class EntityManager {
             Entity e = entities.get(i);
             e.update();
         }
-        
+        //Se compara cada vez las posiciones de los objetos para que se actualice primero el que esté mas abajo
+        entities.sort(rendersorter);
     }
     
     public void render(Graphics g){

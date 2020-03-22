@@ -8,6 +8,7 @@ package beginner;
 import Graficos.GameCamara;
 import Worlds.World;
 import beginner.Input.KeyManager;
+import beginner.Input.MouseManager;
 /**
  *
  * @author German David
@@ -37,6 +38,10 @@ public class Handler {
         return game.getKeyManager();
     }
 
+    public MouseManager getMouseManager(){
+        return game.getMouseManager();
+    }
+    
     public Game getGame() {
         return game;
     }

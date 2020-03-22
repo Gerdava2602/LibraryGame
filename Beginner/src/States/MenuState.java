@@ -8,6 +8,7 @@ package States;
 import Graficos.Assets;
 import beginner.Game;
 import beginner.Handler;
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -22,12 +23,15 @@ public class MenuState extends State{
 
     @Override
     public void update() {
-        
+        if(handler.getMouseManager().isLeftPressed() && handler.getMouseManager().isRightPressed()){
+            State.setState(handler.getGame().gameState);
+        }
     }
 
     @Override
     public void render(Graphics g) {
-       g.drawImage(Assets.background, 0, 0, null);
+        g.setColor(Color.yellow);
+       g.drawOval(handler.getMouseManager().getMouseX(), handler.getMouseManager().getMouseY(), 10, 10);
     }
 
     
