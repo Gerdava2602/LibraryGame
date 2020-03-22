@@ -7,7 +7,9 @@ package Worlds;
 
 import Entities.Creatures.Player;
 import Entities.EntityManager;
+import Entities.Static.BookPile;
 import Graficos.Assets;
+import static Graficos.Assets.BookPile;
 import Tiles.Tile;
 import static Tiles.Tile.TILEHEIGHT;
 import static Tiles.Tile.TILEWIDTH;
@@ -32,6 +34,10 @@ public class World {
     public World(Handler handler, String path) {
         this.handler =handler;
         entityManager= new EntityManager(handler,new Player(handler,100,100));
+        entityManager.addEntity(new BookPile(handler,500,500));
+        entityManager.addEntity(new BookPile(handler,120,600));
+        entityManager.addEntity(new BookPile(handler,800,400));
+        entityManager.addEntity(new BookPile(handler,730,188));
         loadWorld(path);
 
         entityManager.getPlayer().setX(spawnX);
@@ -92,6 +98,14 @@ public class World {
 
     public int getHeight() {
         return height;
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
 }

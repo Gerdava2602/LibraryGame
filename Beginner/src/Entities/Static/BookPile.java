@@ -17,6 +17,11 @@ public class BookPile extends StaticEntity{
     
     public BookPile(Handler handler, float x, float y) {
         super(handler, x, y, 55,55);
+        
+        bounds.x=5;
+        bounds.y=1;
+        bounds.width=50;
+        bounds.height=45;
     }
     
     @Override
