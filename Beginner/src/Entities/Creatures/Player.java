@@ -50,6 +50,7 @@ public class Player extends Creature {
 
     @Override
     public void update() {
+        //Actualiza los frames
         animDown.update();
         animUp.update();
         animR.update();

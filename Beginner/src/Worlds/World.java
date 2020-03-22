@@ -5,6 +5,8 @@
  */
 package Worlds;
 
+import Entities.Creatures.Player;
+import Entities.EntityManager;
 import Graficos.Assets;
 import Tiles.Tile;
 import static Tiles.Tile.TILEHEIGHT;
@@ -24,16 +26,20 @@ public class World {
     private int width, height;
     private int spawnX, spawnY;
     private int[][] tiles = new int[100][100];
-    
+    //Entities
+    private EntityManager entityManager;
 
     public World(Handler handler, String path) {
         this.handler =handler;
+        entityManager= new EntityManager(handler,new Player(handler,100,100));
         loadWorld(path);
 
+        entityManager.getPlayer().setX(spawnX);
+        entityManager.getPlayer().setY(spawnY);
     }
 
     public void update() {
-
+        entityManager.update();
     }
 
     public void render(Graphics g) {
@@ -49,6 +55,7 @@ public class World {
                         (int) (y * Tile.TILEHEIGHT - handler.getGameCamara().getyOffset()));
             }
         }
+        entityManager.render(g);
     }
 
     public Tile getTile(int x, int y) {

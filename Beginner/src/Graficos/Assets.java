@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 //every image, music or resource
 public class Assets {
 
-    public static BufferedImage playerDown[]= new BufferedImage[9],empty, library, background, playerJump, playerWalk, floor;
+    public static BufferedImage playerDown[]= new BufferedImage[9],empty, library, background, playerJump, playerWalk,BookPile, floor;
     public static BufferedImage playerUp[]= new BufferedImage[9];
     public static BufferedImage playerRight[]= new BufferedImage[9];
     public static BufferedImage playerLeft[]= new BufferedImage[9];
@@ -57,7 +57,7 @@ public class Assets {
         */
         background = Imageloader.loadImage("/textures/espacio.png");
         empty=Imageloader.loadImage("/textures/empty.png");
-
+        BookPile=Imageloader.loadImage("/textures/BookPile.png");
     }
 }
 
