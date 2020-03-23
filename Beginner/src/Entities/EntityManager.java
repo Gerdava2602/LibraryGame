@@ -43,6 +43,8 @@ public class EntityManager {
         for(int i=0;i<entities.size();i++){
             Entity e = entities.get(i);
             e.update();
+            if(!e.isActive())
+                entities.remove(e);
         }
         //Se compara cada vez las posiciones de los objetos para que se actualice primero el que esté mas abajo
         entities.sort(rendersorter);

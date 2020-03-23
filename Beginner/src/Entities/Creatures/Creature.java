@@ -18,17 +18,16 @@ import java.awt.Graphics;
 public abstract class Creature extends Entity {
 
     protected float Xmove = 0, Ymove = 0;
-    protected int health;
     protected float speed;
 
-    public static final int DEFAULT_HEALTH = 10;
+    
     public static final float DEFAULT_SPEED = 3.0f;
     public static final int DEFAULT_CREATURE_WIDTH = 131;
     public static final int DEFAULT_CREATUR_HEIGHT = 110;
 
     public Creature(Handler handler, float x, float y, int width, int height) {
         super(handler, x, y, width, height);
-        health = DEFAULT_HEALTH;
+        
         speed = DEFAULT_SPEED;
     }
 

@@ -5,6 +5,7 @@
  */
 package Entities.Creatures;
 
+import Entities.Entity;
 import Entities.Items.Bullet;
 import Graficos.Animation;
 import Graficos.Assets;
@@ -14,6 +15,7 @@ import beginner.Handler;
 import java.awt.Color;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 /**
@@ -25,6 +27,11 @@ public class Player extends Creature {
     public Bullet[] bullets= new Bullet[100];
     public static int bullcount = 0;
     private long clock;
+    //Attack range
+    private int attackR;
+    //Attack timer, AttackCooldown=
+    private long lastAttackTimer,attackCooldown=800, attackTimer=attackCooldown;
+    
     //Animations
     private Animation animDown,animUp,animR,animL;
     
@@ -40,6 +47,9 @@ public class Player extends Creature {
         bounds.y=65;
         bounds.width=52;
         bounds.height=40;
+        
+        attackR=20;
+        
         
         //Animations           Speed en millis()
         animDown= new Animation(100,Assets.playerDown);
@@ -57,6 +67,9 @@ public class Player extends Creature {
         animL.update();
         getInput();
         move();
+        //Attack
+        checkAttacks();
+        //Balas, no usadas en este juego
         for (int i = 0; i <100; i++) {
             //condición para que no se borren las balas ya hechas
             if(bullets[i] != null){
@@ -66,6 +79,51 @@ public class Player extends Creature {
         handler.getGameCamara().centerOnEntity(this);
     }
 
+    private void checkAttacks(){
+        
+        attackTimer+= System.currentTimeMillis()-lastAttackTimer;
+        lastAttackTimer= System.currentTimeMillis();
+        if(attackTimer <attackCooldown)
+            //No hace lo de abajo
+            return;
+        
+        Rectangle cb = getCollisionBounds(0,0);
+        Rectangle ar = new Rectangle();
+        
+        ar.width=attackR;
+        ar.height= attackR;
+        if(handler.getKeyManager().aUp){
+            ar.x=cb.x+cb.width/2 - attackR/2;
+            ar.y= cb.y-attackR;
+        }else if(handler.getKeyManager().aDown){
+            ar.x=cb.x+cb.width/2 - attackR/2;
+            ar.y= cb.y+cb.height;
+        } else if(handler.getKeyManager().aLeft){
+            ar.x=cb.x- attackR;
+            ar.y= cb.y+ cb.height/2 - attackR/2;
+        } else if(handler.getKeyManager().aRight){
+            ar.x=cb.x + cb.width;
+            ar.y= cb.y+ cb.height/2 - attackR/2;
+        } else{
+            return;
+        }
+        
+        attackTimer=0;
+        
+        for (Entity e :handler.getWorld().getEntityManager().getEntities()) { 
+            if(e.equals(this))
+                continue;
+            if(e.getCollisionBounds(0,0).intersects(ar))
+                e.hurt(1);
+                return;
+        }
+    }
+    
+    public void die(){
+ 
+        System.out.println("You lose");
+    }
+    
     private void getInput() {
         Xmove = 0;
         Ymove = 0;

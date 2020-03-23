@@ -30,6 +30,11 @@ public class BookPile extends StaticEntity{
     }
     
     @Override
+    public void die(){
+        
+    }
+    
+    @Override
     public void render(Graphics g){
         g.drawImage(Assets.BookPile, (int) (x-handler.getGameCamara().getxOffset()),(int) (y-handler.getGameCamara().getyOffset()), null);
     }

@@ -20,11 +20,13 @@ import java.awt.Graphics;
  *
  * @author German David
  */
+
+//Estas balas se pueden activar, pero no son usadas en el juego y tienen errores en el movimiento
 public class Bullet extends Entity {
     
     private int X;
     private int Y;
-    
+    private int Speed=2;
     public Bullet(Handler handler, float x, float y, int width, int height) {
         super(handler, x, y, width, height);
         X=(int) (x+Player.DEFAULT_CREATURE_WIDTH/2 - handler.getGameCamara().getxOffset());
@@ -36,27 +38,30 @@ public class Bullet extends Entity {
     @Override
     public void update() {
        
-        X+=2;
+        X+=Speed;
         
       
     }
 
     @Override
     public void render(Graphics g) {
-        if(X <= handler.getWidth()*Tile.TILEWIDTH){
+        
          g.setColor(Color.yellow);
          g.fillOval( X,  Y, 10, 10);
-        }
+         
     }
 
+    public void die(){
+        
+    }
     
-    
-    public boolean isShoot(){
-        if(x>=handler.getWidth()){
-            return false;
-        }else{
-            return true;
-        }
+
+    public int getSpeed() {
+        return Speed;
+    }
+
+    public void setSpeed(int Speed) {
+        this.Speed = Speed;
     }
     
 }

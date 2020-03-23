@@ -7,7 +7,10 @@
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/MenuState.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Game.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/UI/UIManager.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/EntityManager.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Graficos/Animation.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Input/KeyManager.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Entity.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/States/SettingState.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Creatures/Player.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/UI/UIObject.java</file>
@@ -15,6 +18,8 @@
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Handler.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/UI/UIImageButton.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/beginner/Launcher.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Static/BookPile.java</file>
+            <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/Entities/Items/Bullet.java</file>
             <file>file:/C:/Users/German%20David/Documents/NetBeansProjects/Beginner/src/UI/ClickListener.java</file>
         </group>
     </open-files>
