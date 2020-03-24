@@ -5,6 +5,7 @@
  */
 package Entities;
 
+import Entities.Creatures.Ghost;
 import beginner.Game;
 import beginner.Handler;
 import java.awt.Graphics;
@@ -46,6 +47,7 @@ public abstract class Entity {
                 continue;
             //Si las dos hitbox se intersectan entonces si hubo colision
             if(e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset,yOffset))){
+                if(!(e instanceof Ghost))
                 return true;
             }
         }

@@ -111,11 +111,14 @@ public class Player extends Creature {
         attackTimer=0;
         
         for (Entity e :handler.getWorld().getEntityManager().getEntities()) { 
-            if(e.equals(this))
-                continue;
-            if(e.getCollisionBounds(0,0).intersects(ar))
-                e.hurt(1);
-                return;
+            
+            System.out.println(""+e.getCollisionBounds(0,0));
+            if(!e.equals(this)){
+                 if(e.getCollisionBounds(0,0).intersects(ar)){
+                    e.hurt(10);
+                    return;
+                }
+           }
         }
     }
     

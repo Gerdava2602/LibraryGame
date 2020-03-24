@@ -5,6 +5,7 @@
  */
 package Worlds;
 
+import Entities.Creatures.Ghost;
 import Entities.Creatures.Player;
 import Entities.EntityManager;
 import Entities.Static.BookPile;
@@ -38,6 +39,7 @@ public class World {
         entityManager.addEntity(new BookPile(handler,120,600));
         entityManager.addEntity(new BookPile(handler,800,400));
         entityManager.addEntity(new BookPile(handler,730,188));
+        entityManager.addEntity(new Ghost(handler,entityManager,680,188));
         loadWorld(path);
 
         entityManager.getPlayer().setX(spawnX);

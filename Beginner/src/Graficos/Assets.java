@@ -17,13 +17,19 @@ public class Assets {
     public static BufferedImage playerLeft[]= new BufferedImage[9];
     
     //Enemy Sprites
-    public static BufferedImage EnemyUp[]= new BufferedImage[9];
-    public static BufferedImage EnemyRight[]= new BufferedImage[9];
-    public static BufferedImage EnemyDown[]= new BufferedImage[9];
-    public static BufferedImage EnemyLeft[]= new BufferedImage[9];
+    public static BufferedImage SkelUp[]= new BufferedImage[9];
+    public static BufferedImage SkelRight[]= new BufferedImage[9];
+    public static BufferedImage SkelDown[]= new BufferedImage[9];
+    public static BufferedImage SkelLeft[]= new BufferedImage[9];
     public static BufferedImage Start[]= new BufferedImage[2];
     //Background Sprites
     public static BufferedImage Background[]= new BufferedImage[4];
+    
+    //Ghost sprite
+        public static BufferedImage GhostUp[]= new BufferedImage[3];
+    public static BufferedImage GhostRight[]= new BufferedImage[3];
+    public static BufferedImage GhostDown[]= new BufferedImage[3];
+    public static BufferedImage GhostLeft[]= new BufferedImage[3];
     
     private static final int width = 64, height = 64;
 
@@ -32,6 +38,7 @@ public class Assets {
         SpriteSheet sheet = new SpriteSheet(Imageloader.loadImage("/textures/DudeSprite.png"));
         SpriteSheet sheetEnemy = new SpriteSheet(Imageloader.loadImage("/textures/EnemySprite.png"));
         SpriteSheet BackSheet = new SpriteSheet(Imageloader.loadImage("/textures/BackSheet.png"));
+        SpriteSheet GhostSheet = new SpriteSheet(Imageloader.loadImage("/textures/GhostSprite.png"));
         library = Imageloader.loadImage("/textures/Library.png");
         floor = Imageloader.loadImage("/textures/Floor.png");
         int j = 0;
@@ -44,18 +51,18 @@ public class Assets {
                     switch(i){
                         case 0:
                             playerUp[k]=sheet.crop(64*k, 64*i, width, height);
-                            EnemyUp[k]=sheetEnemy.crop(64*k, 64*i, width, height);
+                            SkelUp[k]=sheetEnemy.crop(64*k, 64*i, width, height);
                             break;
                         case 1:
                             playerLeft[k]=sheet.crop(64*k, 64*i, width, height);
-                            EnemyLeft[k]=sheetEnemy.crop(64*k, 64*i, width, height);
+                            SkelLeft[k]=sheetEnemy.crop(64*k, 64*i, width, height);
                             break;
                         case 2:
                             playerDown[k]=sheet.crop(64*k, 64*i, width, height);
-                            EnemyDown[k]=sheetEnemy.crop(64*k, 64*i, width, height);
+                            SkelDown[k]=sheetEnemy.crop(64*k, 64*i, width, height);
                         case 3: 
                             playerRight[k]=sheet.crop(64*k, 64*i, width, height);
-                            EnemyRight[k]=sheetEnemy.crop(64*k, 64*i, width, height);
+                            SkelRight[k]=sheetEnemy.crop(64*k, 64*i, width, height);
                             break;
                     }
                    
@@ -76,6 +83,25 @@ public class Assets {
             
         }
         */
+        for (int i = 0; i < 4; i++) {
+            for (int k = 0; k < 3; k++) {
+                switch(i){
+                        case 0:
+                            GhostDown[k]=GhostSheet.crop(48*k, 48*i, 48, 48);
+                            
+                            break;
+                        case 1:
+                            GhostLeft[k]=GhostSheet.crop(48*k, 48*i, 48, 48);
+                            break;
+                        case 2:
+                            GhostRight[k]=GhostSheet.crop(48*k, 48*i, 48, 48);
+                        case 3: 
+                            GhostUp[k]=GhostSheet.crop(48*k, 48*i, 48, 48);
+                            break;
+                    }
+                   
+            }
+        }
         background = Imageloader.loadImage("/textures/espacio.png");
         empty=Imageloader.loadImage("/textures/empty.png");
         BookPile=Imageloader.loadImage("/textures/BookPile.png");
