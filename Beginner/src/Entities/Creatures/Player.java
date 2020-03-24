@@ -27,8 +27,10 @@ public class Player extends Creature {
     public Bullet[] bullets= new Bullet[100];
     public static int bullcount = 0;
     private long clock;
+    
     //Attack range
     private int attackR;
+    
     //Attack timer, AttackCooldown=
     private long lastAttackTimer,attackCooldown=800, attackTimer=attackCooldown;
     
@@ -123,7 +125,6 @@ public class Player extends Creature {
     }
     
     public void die(){
- 
         System.out.println("You lose");
     }
     

@@ -5,11 +5,13 @@
  */
 package Entities.Creatures;
 
+import Entities.Entity;
 import Entities.EntityManager;
 import Graficos.Animation;
 import Graficos.Assets;
 import beginner.Handler;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 /**
@@ -53,6 +55,7 @@ public class Ghost extends Creature{
         animR.update();
         animL.update();
         move();
+        checkAttacks();
     }
 
     @Override
@@ -90,6 +93,30 @@ public class Ghost extends Creature{
         }
     }
 
+    private void checkAttacks(){
+        
+        attackTimer+= System.currentTimeMillis()-lastAttackTimer;
+        lastAttackTimer= System.currentTimeMillis();
+        if(attackTimer <attackCooldown)
+            //No hace lo de abajo
+            return;
+        
+        Rectangle cb = getCollisionBounds(0,0);
+        
+        attackTimer=0;
+        
+        for (Entity e :handler.getWorld().getEntityManager().getEntities()) { 
+            
+            System.out.println(""+e.getCollisionBounds(0,0));
+            if(!e.equals(this)){
+                 if(e.getCollisionBounds(0,0).intersects(cb)){
+                    e.hurt(10);
+                    return;
+                }
+           }
+        }
+    }
+    
     @Override
     public void die() {
         

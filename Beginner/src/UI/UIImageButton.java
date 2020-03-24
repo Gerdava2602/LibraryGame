@@ -24,7 +24,9 @@ public class UIImageButton extends UIObject {
     }
 
     @Override
-    public void tick() {}
+    public void tick() {
+        
+    }
 
     @Override
     public void render(Graphics g) {
@@ -36,6 +38,7 @@ public class UIImageButton extends UIObject {
 
     @Override
     public void onClick() {
+
         clicker.onClick();
     }
     

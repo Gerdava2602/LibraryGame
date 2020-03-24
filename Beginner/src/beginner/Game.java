@@ -12,6 +12,7 @@ import Graficos.GameCamara;
 import Graficos.SpriteSheet;
 import States.GameState;
 import States.MenuState;
+import States.SettingState;
 import States.State;
 import Worlds.World;
 import beginner.Input.KeyManager;
@@ -91,7 +92,9 @@ public class Game implements Runnable {
         handler= new Handler(this);
         gameCamara= new GameCamara(handler,0,0);
         gameState= new GameState(handler);
+        SettingState= new SettingState(handler);
         menuState= new MenuState(handler);
+        
         State.setState(menuState);
     }
 
@@ -176,6 +179,10 @@ public class Game implements Runnable {
         stop();
     }
     
+    
+    public void setState(State e){
+        State.setState(e);
+    }
     public KeyManager getKeyManager(){
         return KeyManager;
     }
