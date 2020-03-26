@@ -27,7 +27,8 @@ public class Player extends Creature {
     public Bullet[] bullets= new Bullet[100];
     public static int bullcount = 0;
     private long clock;
-    
+    private boolean punchie=false;
+    private int ar1,ar2;
     //Attack range
     private int attackR;
     
@@ -110,6 +111,9 @@ public class Player extends Creature {
             return;
         }
         
+        ar1=ar.x;
+        ar2=ar.y;
+        punchie=true;
         attackTimer=0;
         
         for (Entity e :handler.getWorld().getEntityManager().getEntities()) { 
@@ -161,6 +165,11 @@ public class Player extends Creature {
     public void render(Graphics g) {
 
         g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamara().getxOffset()), (int) (y - handler.getGameCamara().getyOffset()), width, height, null);
+        if(punchie){
+            g.fillRect(ar1, ar2, attackR, attackR);
+            punchie=false;
+        }
+        
         /*
         g.setColor(Color.yellow);
         g.fillRect((int) (x + bounds.x - handler.getGameCamara().getxOffset()), 
